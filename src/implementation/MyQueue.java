@@ -5,10 +5,24 @@ import myinterface.QueueADT;
 
 public class MyQueue<E extends Comparable<E>> implements QueueADT<E> {
     int[] arr;
+
     E[] brr;
     int rear;
     int front;
     int size;
+
+    public void enqueue(E element) {
+        if(size != brr.length){
+
+            brr[rear] = element;
+            rear++;
+            size++;
+            rearrangeGeneric();
+        }
+        else {
+            System.out.println("queue overflow");
+        }
+    }
 
     @Override
     public void rearrange() {
